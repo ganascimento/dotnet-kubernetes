@@ -1,0 +1,19 @@
+services:
+  api:
+    image: dotnet.salesad.app
+    container_name: salesad_api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Docker
+    ports:
+      - 5000:80
+    depends_on:
+      - postgresDb
+  postgresDb:
+    image: postgres
+    container_name: postgres_db
+    environment:
+      POSTGRES_PASSWORD: PostgresDb#1342
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    ports:
+      - 5432:5432

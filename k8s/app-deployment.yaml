@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salesadapi
+spec:
+  selector:
+    matchLabels:
+      app: salesadapi
+  template:
+    metadata:
+      labels:
+        app: salesadapi
+    spec:
+      containers:
+      - name: salesadapi
+        image: dotnet.salesad.app
+        imagePullPolicy: Never
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Release
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salesadapi-service
+  labels:
+    run: salesadapi-service
+spec:
+  selector:
+    app: salesadapi
+  ports:
+  - port: 5000
+    targetPort: 80
+    protocol: TCP
+  type: LoadBalancer

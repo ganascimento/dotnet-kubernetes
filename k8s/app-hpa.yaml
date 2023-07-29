@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salesadapi
+spec:
+  selector:
+    matchLabels:
+      app: salesadapi
+  template:
+    metadata:
+      labels:
+        app: salesadapi
+    spec:
+      containers:
+      - name: salesadapi
+        image: dotnet.salesad.app
+        imagePullPolicy: Never
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Release
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: 500m
+          requests:
+            memory: 256Mi
+            cpu: 300m
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salesadapi-service
+  labels:
+    run: salesadapi-service
+spec:
+  selector:
+    app: salesadapi
+  ports:
+  - port: 5000
+    targetPort: 80
+    protocol: TCP
+  type: LoadBalancer
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: app-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: salesadapi
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 40
