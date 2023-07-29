@@ -54,7 +54,7 @@ The HPA ensures that the application can handle varying levels of traffic and wo
 
 ## Use
 
-To run you need Docker and Kubernetes installed, for this, go to [documentation](https://kubernetes.io/docs/setup/):
+To run you need Docker and Kubernetes installed, for this, go to [documentation](https://kubernetes.io/docs/setup/).
 
 ## Docker Compose
 
