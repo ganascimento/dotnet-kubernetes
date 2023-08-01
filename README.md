@@ -49,12 +49,12 @@ Is a resource used for automated scaling of applications based on their resource
 The HPA ensures that the application can handle varying levels of traffic and workload demands by automatically scaling up or down the number of pods. If the CPU or custom metric exceeds a predefined threshold, the HPA will increase the number of replicas to distribute the load. Conversely, if the resource usage decreases, the HPA will scale down the replicas to optimize resource utilization and reduce costs.
 
 <p align="center">
-  <img src="./assets/hpa.png" width="400" />
+  <img src="./assets/HPA.png" width="400" />
 </p>
 
 ## Use
 
-To run you need Docker and Kubernetes installed, for this, go to [documentation](https://kubernetes.io/docs/setup/):
+To run you need Docker and Kubernetes installed, for this, go to [documentation](https://kubernetes.io/docs/setup/).
 
 ## Docker Compose
 
