@@ -10,7 +10,7 @@ namespace SalesAd.Domain.VO
         private Phone(string value)
         {
             AssertionConcern.AssertArgumentNotEmpty(value, "Phone is required!");
-            value = Regex.Match(value, @"^\d+$").Value;
+            value = Regex.Replace(value, "[^0-9]+", "");
             AssertionConcern.AssertArgumentLength(value, 10, 11, "Phone is invalid");
 
             _value = value;

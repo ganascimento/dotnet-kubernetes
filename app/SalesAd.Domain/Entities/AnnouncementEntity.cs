@@ -7,10 +7,10 @@ namespace SalesAd.Domain.Entities
 {
     public class AnnouncementEntity : BaseEntity, IAggregateRoot
     {
-        private AnnouncementEntity(Guid id) : base(id, null, null)
-        {
+        // Test Constructor
+        public AnnouncementEntity() : base(Guid.NewGuid(), null, null) { }
 
-        }
+        private AnnouncementEntity(Guid id) : base(id, null, null) { }
 
         public AnnouncementEntity(
             Guid id,

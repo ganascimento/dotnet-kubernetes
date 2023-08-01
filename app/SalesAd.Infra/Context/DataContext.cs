@@ -10,6 +10,8 @@ namespace SalesAd.Infra.Context
         public DbSet<OwnerEntity>? Owner { get; set; }
         public DbSet<AnnouncementEntity>? Announcement { get; set; }
 
+        public DataContext() : base() { }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

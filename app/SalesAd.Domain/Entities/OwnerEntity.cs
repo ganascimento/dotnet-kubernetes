@@ -6,10 +6,10 @@ namespace SalesAd.Domain.Entities
 {
     public class OwnerEntity : BaseEntity, IAggregateRoot
     {
-        private OwnerEntity(Guid id) : base(id, null, null)
-        {
+        // Test Constructor
+        public OwnerEntity() : base(Guid.NewGuid(), null, null) { }
 
-        }
+        private OwnerEntity(Guid id) : base(id, null, null) { }
 
         public OwnerEntity(
             Guid id,
