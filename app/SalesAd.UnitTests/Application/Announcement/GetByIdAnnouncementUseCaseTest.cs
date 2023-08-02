@@ -14,7 +14,7 @@ public class GetByIdAnnouncementUseCaseTest : BaseApplicationTest
         _useCase = new GetByIdAnnouncementUseCase(_announcementRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should get one register by id")]
     public async Task Execute_Success()
     {
         var resultModel = AnnouncementFake.Build;
@@ -27,7 +27,7 @@ public class GetByIdAnnouncementUseCaseTest : BaseApplicationTest
         Assert.Equal(result.Id, resultModel.Id);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should return null when find")]
     public async Task Execute_Not_Found()
     {
         var resultModel = AnnouncementFake.Build!;

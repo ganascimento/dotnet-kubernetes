@@ -28,6 +28,7 @@
     <ProjectReference Include="..\SalesAd.Infra\SalesAd.Infra.csproj" />
     <ProjectReference Include="..\SalesAd.Domain\SalesAd.Domain.csproj" />
     <ProjectReference Include="..\SalesAd.Application\SalesAd.Application.csproj" />
+    <ProjectReference Include="..\SalesAd.Api\SalesAd.Api.csproj" />
   </ItemGroup>
 
 </Project>

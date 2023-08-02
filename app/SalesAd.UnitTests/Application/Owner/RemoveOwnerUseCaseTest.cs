@@ -14,7 +14,7 @@ public class RemoveOwnerUseCaseTest : BaseApplicationTest
         _useCase = new RemoveOwnerUseCase(_ownerRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should remove owner")]
     public async Task Execute_Success()
     {
         var resultModel = OwnerFake.Build;
@@ -25,7 +25,7 @@ public class RemoveOwnerUseCaseTest : BaseApplicationTest
         _ownerRepository.Verify(v => v.DeleteAsync(resultModel!), Times.Exactly(1));
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should return null when it finds the owner")]
     public async Task Execute_Not_Found()
     {
         var ownerId = Guid.NewGuid();

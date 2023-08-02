@@ -14,7 +14,7 @@ public class UpdateOwnerUseCaseTest : BaseApplicationTest
         _useCase = new UpdateOwnerUseCase(_ownerRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should update owner")]
     public async Task Execute_Success()
     {
         var resultModel = OwnerFake.Build;
@@ -32,7 +32,7 @@ public class UpdateOwnerUseCaseTest : BaseApplicationTest
         _ownerRepository.Verify(v => v.UpdateAsync(resultModel!), Times.Exactly(1));
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should return null when find owner")]
     public async Task Execute_Not_Found()
     {
         var resultModel = OwnerFake.Build;

@@ -14,7 +14,7 @@ public class RemoveAnnouncementUseCaseTest : BaseApplicationTest
         _useCase = new RemoveAnnouncementUseCase(_announcementRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should remove")]
     public async Task Execute_Success()
     {
         var resultModel = AnnouncementFake.Build;
@@ -25,7 +25,7 @@ public class RemoveAnnouncementUseCaseTest : BaseApplicationTest
         _announcementRepository.Verify(v => v.DeleteAsync(resultModel!), Times.Exactly(1));
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should return null when find")]
     public async Task Execute_Not_Found()
     {
         var resultModel = AnnouncementFake.Build!;

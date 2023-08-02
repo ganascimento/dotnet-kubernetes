@@ -14,7 +14,7 @@ public class GetAllAnnouncementUseCaseTest : BaseApplicationTest
         _useCase = new GetAllAnnouncementUseCase(_announcementRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should get all registers")]
     public async Task Execute_Success()
     {
         var resultModel = new List<AnnouncementEntity>

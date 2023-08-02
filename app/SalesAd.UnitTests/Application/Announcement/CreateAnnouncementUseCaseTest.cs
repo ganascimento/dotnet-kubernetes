@@ -14,7 +14,7 @@ public class CreateAnnouncementUseCaseTest : BaseApplicationTest
         _useCase = new CreateAnnouncementUseCase(_announcementRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should create new announcement")]
     public async Task Execute_Success()
     {
         var resultModel = AnnouncementFake.Build;

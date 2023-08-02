@@ -14,7 +14,7 @@ public class GetByOwnerAnnouncementUseCaseTest : BaseApplicationTest
         _useCase = new GetByOwnerAnnouncementUseCase(_announcementRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should return all registers when find by owner id")]
     public async Task Execute_Success()
     {
         var resultModel = new List<AnnouncementEntity>
@@ -32,7 +32,7 @@ public class GetByOwnerAnnouncementUseCaseTest : BaseApplicationTest
         Assert.Equal(result.Count, 2);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should return null when find")]
     public async Task Execute_Not_Found()
     {
         var ownerId = Guid.NewGuid();

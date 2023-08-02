@@ -14,7 +14,7 @@ public class UpdateAnnouncementUseCaseTest : BaseApplicationTest
         _useCase = new UpdateAnnouncementUseCase(_announcementRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should update")]
     public async Task Execute_Success()
     {
         var resultModel = AnnouncementFake.Build;
@@ -40,7 +40,7 @@ public class UpdateAnnouncementUseCaseTest : BaseApplicationTest
         _announcementRepository.Verify(v => v.UpdateAsync(resultModel!), Times.Exactly(1));
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should return null when find")]
     public async Task Execute_Not_Found()
     {
         var resultModel = AnnouncementFake.Build!;

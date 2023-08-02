@@ -14,7 +14,7 @@ public class CreateOwnerUseCaseTest : BaseApplicationTest
         _useCase = new CreateOwnerUseCase(_ownerRepository.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Should craete new owner")]
     public async Task Execute_Success()
     {
         var resultModel = OwnerFake.Build!;
